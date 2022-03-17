@@ -20,7 +20,7 @@ function divide (prevNum, newNum){
 };
 let result = 0;
 
-function operate(operand, prevNum, newNum){
+function operate(prevNum, operand, newNum){
     if(operand == "+"){
         result = add(prevNum, newNum);
     }
@@ -69,14 +69,23 @@ let buttons = Array.from(document.getElementsByClassName("number"))
 let previousNum = 0
 let operator = 7
 let operation = []
+let content = ""
+let result_display = false
 
 buttons.forEach(element => {element.addEventListener('click', event =>{ 
     let number = (element.textContent)
-    let display = document.getElementById("display")
-    let content = display.textContent
+    if (result_display != true){
+        let display = document.getElementById("display")
+        content = display.textContent  
+    }
+    else{
+        content = ""
+    }
+    
     display.textContent = content + number
     operator = ""
     previousNum = previousNum + number
+    result_display = false
 })});
 
 //adding an event listener to non number buttons for function to display
@@ -101,4 +110,28 @@ equal.addEventListener('click', event =>{
     previousNum = parseInt(previousNum)
     operation.push(previousNum)
     console.log(operation)
+    size = operation.length
+    if (size >= 3){
+        result = operate(operation[0], operation[1], operation[2])
+        console.log(result)
+        opp = 1
+        opp2 = 2
+        if (size > 3){
+            size = size -3 
+            while (size > 0){
+                opp = opp + 2
+                opp2 = opp2 + 2
+                size = size - 2
+                result = operate(result, operation[opp], operation[opp2])
+            }
+
+        }
+        let display = document.getElementById("display")
+        display.textContent = result
+        operation = []
+        operator = 7
+        previousNum = ""
+        result_display = true
+    }
 })
+//CLEAR BUTTON
