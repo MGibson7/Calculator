@@ -43,3 +43,24 @@ function operate(operand, prevNum, newNum){
 
 a = operate("/", 7, 2);
 console.log(a)
+
+//create HTML calculator elements
+for(i = 0; i<5; i++){
+    let new_div = document.createElement("div");
+        new_div.classList.add(`number${i}`);
+        new_div.setAttribute('style', 'display: flex; flex-basis: 100%, text-align: center;'); 
+        new_div.innerHTML = (`<button id = "${i}">${i}</button>`);
+        appending = document.getElementById("buttons");
+        appending.append(new_div);
+
+}
+for(i = 5; i<10; i++){
+    let new_div = document.createElement("div");
+        new_div.classList.add(`number${i}`);
+        new_div.setAttribute('style', 'display: flex; flex-basis: 100%, text-align: center;'); 
+        new_div.innerHTML = (`<button id = "${i}">${i}</button>`);
+        appending = document.getElementById("buttons2");
+        appending.append(new_div);
+
+}
+

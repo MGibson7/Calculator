@@ -1,0 +1,58 @@
+html{
+    box-sizing: border-box;
+    }
+    
+    *, *::before, *::after{
+    box-sizing: inherit;
+    }
+
+h1{
+    color: orange;
+    text-align: center;
+}
+body{
+    background-image: linear-gradient(black, orange, black);
+}
+
+#container{
+    max-width: 100%;
+    display: flex;
+}
+
+#calculator{
+    flex-basis: 10%;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    margin: 0 auto;
+    margin-top: 10px;
+    background-color: orange;
+
+}
+
+#display{
+    flex-basis: 50%;
+    background-color: black;
+    color: orange;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    margin: 0px;
+    text-align: center;
+    border: 1px solid orange;
+    
+
+}
+
+#buttons, #buttons1, #buttons2, #buttons3{
+    display:flex;
+}
+
+button{
+    background-color: black;
+    text-align: center;
+    color: orange;
+    padding: 50px;
+    border: 1px solid orange;
+    flex-basis: 100%;
+}
