@@ -78,8 +78,13 @@ buttons.forEach(element => {element.addEventListener('click', event =>{
         let display = document.getElementById("display")
         content = display.textContent  
     }
+    else if (result_display == true && operator != "") {
+        let display = document.getElementById("display")
+        content = display.textContent
+    }
     else{
         content = ""
+        previousNum = 0
     }
     
     display.textContent = content + number
@@ -109,11 +114,9 @@ let equal = document.getElementById("equal")
 equal.addEventListener('click', event =>{
     previousNum = parseInt(previousNum)
     operation.push(previousNum)
-    console.log(operation)
     size = operation.length
-    if (size >= 3){
+    if (size >= 3 && operator ==""){
         result = operate(operation[0], operation[1], operation[2])
-        console.log(result)
         opp = 1
         opp2 = 2
         if (size > 3){
@@ -129,9 +132,28 @@ equal.addEventListener('click', event =>{
         let display = document.getElementById("display")
         display.textContent = result
         operation = []
+        operator = ""
+        previousNum = result
+        result_display = true
+    }
+    else{
+        let display = document.getElementById("display")
+        display.textContent = "ERROR PLEASE TRY AGAIN"
+        operation = []
         operator = 7
         previousNum = ""
         result_display = true
+
     }
 })
 //CLEAR BUTTON
+let clear = document.getElementById("clear")
+clear.addEventListener('click', event =>{
+    let display = document.getElementById("display")
+        display.textContent = ""
+        operation = []
+        operator = 7
+        previousNum = ""
+        result_display = true
+
+})
