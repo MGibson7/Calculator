@@ -35,8 +35,8 @@ body{
     flex-basis: 50%;
     background-color: black;
     color: orange;
-    padding-top: 20px;
-    padding-bottom: 20px;
+    padding-top: 30px;
+    padding-bottom: 30px;
     margin: 0px;
     text-align: center;
     border: 1px solid orange;
@@ -52,7 +52,9 @@ button{
     background-color: black;
     text-align: center;
     color: orange;
-    padding: 30px;
+    padding: 40px;
     border: 1px solid orange;
     flex-basis: 100%;
+    cursor: pointer;
+    border-radius: 50%;
 }

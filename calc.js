@@ -27,7 +27,7 @@ function operate(operand, prevNum, newNum){
     else if (operand == "-"){
         result = subtract(prevNum, newNum);
     }
-    else if (operand == "*"){
+    else if (operand == "X"){
         result = multiply(prevNum, newNum);
     }
     else if (operand == "/" && newNum != 0){
@@ -41,12 +41,11 @@ function operate(operand, prevNum, newNum){
 
 };
 
-a = operate("/", 7, 2);
-console.log(a)
 
 //create HTML calculator elements
 for(i = 0; i<5; i++){
     let new_div = document.createElement("div");
+        new_div.classList.add(`number`);
         new_div.classList.add(`number${i}`);
         new_div.setAttribute('style', 'display: flex; flex-basis: 100%, text-align: center;'); 
         new_div.innerHTML = (`<button id = "${i}">${i}</button>`);
@@ -56,6 +55,7 @@ for(i = 0; i<5; i++){
 }
 for(i = 5; i<10; i++){
     let new_div = document.createElement("div");
+        new_div.classList.add(`number`);
         new_div.classList.add(`number${i}`);
         new_div.setAttribute('style', 'display: flex; flex-basis: 100%, text-align: center;'); 
         new_div.innerHTML = (`<button id = "${i}">${i}</button>`);
@@ -64,3 +64,41 @@ for(i = 5; i<10; i++){
 
 }
 
+//adding an event listener to number buttons for function to display
+let buttons = Array.from(document.getElementsByClassName("number"))
+let previousNum = 0
+let operator = 7
+let operation = []
+
+buttons.forEach(element => {element.addEventListener('click', event =>{ 
+    let number = (element.textContent)
+    let display = document.getElementById("display")
+    let content = display.textContent
+    display.textContent = content + number
+    operator = ""
+    previousNum = previousNum + number
+})});
+
+//adding an event listener to non number buttons for function to display
+let nonNums = Array.from(document.getElementsByClassName("nonnum"))
+nonNums.forEach(element => {element.addEventListener('click', event =>{ 
+    if (operator == ""){
+        previousNum = parseInt(previousNum)
+        operation.push(previousNum)
+        operator = (element.textContent)
+        let display = document.getElementById("display")
+        let content = display.textContent
+        display.textContent = content + operator
+        previousNum = 0
+        operation.push(operator)
+
+    }
+})});
+
+//EQUAL BUTTON
+let equal = document.getElementById("equal")
+equal.addEventListener('click', event =>{
+    previousNum = parseInt(previousNum)
+    operation.push(previousNum)
+    console.log(operation)
+})
