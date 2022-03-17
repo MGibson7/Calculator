@@ -6,7 +6,7 @@ html{
     box-sizing: inherit;
     }
 
-h1{
+h1, h3{
     color: orange;
     text-align: center;
 }
