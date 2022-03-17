@@ -160,9 +160,15 @@ clear.addEventListener('click', event =>{
 
 })
 
+let header = document.getElementById("header")
+header.addEventListener('click', event =>{
+    console.log("clicked")
+})
+
 //keyboard
 opFunct = ['*', "+", "-", "/"]
 document.addEventListener('keydown', function (event) {
+    document.getElementById('header').click();
     numOrNo = isFinite(event.key)
     if (numOrNo === true) {
         let number = (event.key)
@@ -200,6 +206,7 @@ document.addEventListener('keydown', function (event) {
     if (event.key == "Enter"){
         previousNum = parseInt(previousNum)
         operation.push(previousNum)
+        console.log(operation)
         size = operation.length
         if (size >= 3 && operator ==""){
             result = operate(operation[0], operation[1], operation[2])
