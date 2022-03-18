@@ -11,7 +11,7 @@ h1, h3{
     text-align: center;
 }
 body{
-    background-image: linear-gradient(black, orange, black);
+    background-color: black;
 }
 
 #container{
@@ -35,10 +35,11 @@ body{
     flex-basis: 50%;
     background-color: black;
     color: orange;
-    padding-top: 30px;
+    padding-top: 50px;
     padding-bottom: 30px;
     margin: 0px;
     text-align: center;
+    font-size: larger;
     border: 1px solid orange;
     
 
