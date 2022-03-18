@@ -191,7 +191,8 @@ document.addEventListener('keydown', function (event) {
         }
         
     }
-    if (event.key == "="){
+    if (event.key == "=" || event.key == "Enter"){
+        event.preventDefault();
         document.getElementById("equal").click();
     }
     if (event.key == "Backspace"){
