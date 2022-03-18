@@ -6,8 +6,12 @@ html{
     box-sizing: inherit;
     }
 
-h1, h3{
-    color: orange;
+h1{
+    color: limegreen;
+    text-align: center;
+}
+h3{
+    color: limegreen;
     text-align: center;
 }
 body{
@@ -27,8 +31,8 @@ body{
     padding-bottom: 15px;
     margin: 0 auto;
     margin-top: 10px;
-    background-color: orange;
-    border: 5px solid gray;
+    background-color: limegreen;
+    border: 5px solid darkgreen;
     border-radius: 10%;
 
 }
@@ -36,13 +40,13 @@ body{
 #display{
     flex-basis: 50%;
     background-color: black;
-    color: orange;
+    color: limegreen;
     padding-top: 50px;
     padding-bottom: 30px;
     margin: 0px;
     text-align: center;
     font-size: larger;
-    border: 1px solid orange;
+    border: 1px solid green;
     border-radius: 10%;
     
 
@@ -55,10 +59,14 @@ body{
 button{
     background-color: black;
     text-align: center;
-    color: orange;
+    color: limegreen;
     padding: 40px;
-    border: 1px solid orange;
+    border: 1px solid darkgreen;
     flex-basis: 100%;
     cursor: pointer;
     border-radius: 50%;
+}
+
+#buttons1 button, #buttons3 button{
+    color: limegreen;
 }
